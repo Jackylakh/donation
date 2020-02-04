@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DONATION</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+ </head>
+  <body>	
+<div class="container-fluid"> 
+     <nav class="navbar navbar-dark bg-dark">
+       <img src="img/download.jpg" alt="" width="100" height="80">  
+       <h5 align="right"  class="bg-dark text-white">WELCOME,JACKY</h5>
+     </nav>
+   <div class="row mt-5">
+       <div class="col-sm-6">
+         <div class="card" >
+          <div class="card-header bg-dark">
+             <div class="card-title">
+               <h2 class="text-center text-white">COMMENTS</h2>
+            </div>
+          </div>
+          <div class="card-body overflow-auto" style="width: 100%;height: 30rem;">
+              <span><h6>jack<br/>2016-10-16<br/>Use the "media-left" class to left-align a media object. Text that should appear next to the image Text that should appear next to the image</h6></span><br/><hr>
+              <span><h6>marry<br/>2016-10-16<br/>Use the "media-left" class to left-align a media object. Text that should appear next to the image Text that should appear next to the image</h6></span><br/><hr>
+              <span><h6>july<br/>2017-12-16<br/>Use the "media-left" class to left-align a media object. Text that should appear next to the image Text that should appear next to the image</h6></span><br/><hr>
+               <h6><span id="display"></span></h6>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+               <form class="form-horizontal">
+                 <div class="form-group">
+                 <label class="label control col-sm-2"></label>
+                <input  class="form-control" type="text" placeholder="enter Your name" id="name" name="Nname" />
+              </div> 
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+              <label class="label control col-sm-2"></label>
+                <input  class="form-control" type="date" placeholder="date" id="date" name="Ddate" size="20"   />
+            </div>
+           </div>
+         </div>
+            <div class="form-group">
+              <label class="label control col-sm-2"></label>
+                <input class="form-control" type="text" placeholder="enter Your comments" id="title" 
+             name="Ntext" size="20" style="height: 100px;" />
+            </div>
+         </form>
+         <button type="button" class="btn-secondary btn-block mb-2" type="submit" onclick="insert1()">Submit Your Comment</button>
+        </div>
+         <div class="col-sm-6 ">
+          <div class="card mb-3">
+           <div class="card-header bg-dark">
+            <div class="card-title">
+               <h2 class="text-center text-white">GAUGE CHART($100000)</h2>
+            </div>
+          </div>
+          <div class="card-body">
+          <br/><!-- Just so that JSFiddle's Result label doesn't overlap the Chart -->
+           <canvas id="gauge" width="400" height="385"></canvas>
+       </div>
+      </div>   
+      </div>
+    </div>  
+       <div class="card mt-4">
+            <div class="card-header bg-dark">
+              <div class="card-title">
+              <h3 class="text-white  text-center">DONATION TABLE</h3>
+            </div>
+            </div>
+            <div id="table" class="table-editable">
+            <div class="table-responsive">
+               <table class="table table-bordered table-striped table-condensed table-hover">
+                <thead class=" text-secondary">
+                      <tr>
+                         <th>Select</th>
+                        <th>Name</th>
+                        <th>Donation</th>
+                        <th>Donation Date</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                        <tr class="row_to_clone">
+                          <td><input type="checkbox" name="record"></td>
+                      <td><input  class="form-control" type="text" placeholder="enter Your name" id="name"  /></td>
+                     <td><input  type="text" name="amount" value="" class="txt form-control" placeholder="amount" /></td> 
+                      <td><input class="form-control" type="date" placeholder="date" id="date" name="Ddate" size="20" /></td>
+                  </tr>
+                   <tr class="row_to_clone">
+                    <td><input type="checkbox" name="record"></td>
+                   <td><input  class="form-control" type="text" placeholder="enter Your name" id="name"  /></td>
+                   <td><input  type="text" name="amount" value="" class="txt form-control"   placeholder="amount"/></td>
+                   <td><input  class="form-control" type="date" placeholder="date" id="date" name="Ddate" size="20"   /></td>
+                   </tr>
+                 </tbody>
+               </table>
+                   </div>
+                     <div><strong>TOTAL DONATION: $<span id="sum"></span></strong> </div>
+                </div>
+              </div>
+                <button class="addRow btn-success pull-right">Add A Row</button>
+                <button type="button" class="deleterow btn-danger">Delete</button>
+            <ul class="pagination justify-content-center mt-4">
+              <li class="page-item disabled"><a class="page-link" href="donation.html" id="page2">Previous</a></li>
+              <li class="page-item"><a class="page-link" href="donation1.html" id="page1">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+    </div>
+   <script>
+    //table dyanmic 
+    function addRow() {
+    var elements, templateRow, rowCount, row, className, newRow, element;
+    var i, s, t;
+    if (!document.getElementsByTagName) return false;
+    elements = document.getElementsByTagName("tr");
+    templateRow = null;
+    rowCount = 0;
+    for (i = 0; i < elements.length; i++) {
+        row = elements.item(i);
+        className = null;
+        if (row.getAttribute) className = row.getAttribute('class')
+        if (className == null && row.attributes) { 
+            className = row.attributes['class'];
+            if (className && typeof (className) == 'object' && className.value) {
+                className = className.value;
+            }
+        }
+        if (className != "row_to_clone") continue;
+        templateRow = row;
+        rowCount++;
+    }
+    if (templateRow == null) return false;
+    newRow = templateRow.cloneNode(true);
+    elements = newRow.getElementsByTagName("input");
+    for (i = 0; i < elements.length; i++) {
+        element = elements.item(i);
+        s = null;
+        s = element.getAttribute("name");
+        if (s == null) continue;
+        t = s.split("[");
+        if (t.length < 2) continue;
+        s = t[0] + "[" + rowCount.toString() + "]";
+        element.setAttribute("name", s);
+        element.value = "";
+    }
+    $(newRow).find("input").val("");
+    templateRow.parentNode.appendChild(newRow);
+    return true;
+}
+ $(".deleterow").click(function(){
+            $("table tbody").find('input[name="record"]').each(function(){
+              if($(this).is(":checked")){
+                    $(this).parents("tr").remove();
+                    calculateSum();
+                }
+            });
+        });
+
+
+</script>
+<script type="text/javascript">
+//gauge chart
+  let ctx = document.getElementById('gauge').getContext('2d');
+            let chart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            
+            datasets: [{
+                backgroundColor: ['grey','white'],
+                borderColor: 'rgb(99, 99, 99)',
+                data: [0,100000]
+               
+            }]
+        },
+        options: {
+          circumference:1 * Math.PI,
+          rotation:1 * Math.PI, 
+          cutoutPercentage:80
+        }
+    });
+
+            function calculateSum() {
+    var sum = 0;
+    $(".txt").each(function () {
+        if (!isNaN(this.value) && this.value.length != 0) {
+            sum += parseFloat(this.value);
+        }
+
+    });
+   $("#sum").html(sum.toFixed(2));
+    var remain = 100000-sum;
+   if (remain<0) {
+    remain=0;
+   }
+    chart.data.datasets[0].data[0]=sum;
+    chart.data.datasets[0].data[1]=remain;
+    chart.update();
+}
+
+$(".addRow").on("click", addRow);
+
+$("table").on("keyup", ".txt", function () {
+    calculateSum();
+});
+</script>
+
+<script type="text/javascript">
+  // dynamic comment 
+   function checkEmptyInput()
+            {
+                var isEmpty = false,
+                  nameInput = document.getElementById("name").value,
+                  dateInput= document.getElementById("date").value,
+                   titleInput = document.getElementById("title").value;
+            
+                if(nameInput=== ""){
+                    alert(" please fill the whole entry");
+                    isEmpty = true;
+                }
+                else if(dateInput === ""){
+                    alert("please fill the whole entry");
+                    isEmpty = true;
+                }
+                else if(titleInput === ""){
+                    alert(" please fill the whole entry ");
+                    isEmpty = true;
+                }
+                return isEmpty;
+            }
+
+var titles = [];
+var nameInput = document.getElementById("name");
+var dateInput = document.getElementById("date");
+var titleInput = document.getElementById("title");
+var messageBox = document.getElementById("display");
+function insert1 () {
+  if(!checkEmptyInput()){
+titles.push(nameInput.value);
+clearAndShow1();
+titles.push(dateInput.value);
+clearAndShow2();
+titles.push(titleInput.value);
+clearAndShow();
+titles.push("<hr>");
+}
+}
+
+function clearAndShow1 ()
+{
+nameInput.value = "";
+messageBox.innerHTML = "<br/>";
+messageBox.innerHTML += "" + titles.join("");
+}
+function clearAndShow2 ()
+{
+dateInput.value = "";
+messageBox.innerHTML = "";
+messageBox.innerHTML += "" + titles.join("");
+}
+function clearAndShow ()
+{
+titleInput.value = "";
+messageBox.innerHTML = ""; 
+messageBox.innerHTML += "" + titles.join("<br/>");
+}
+</script>
+</body>
+</html>
