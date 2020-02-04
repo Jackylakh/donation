@@ -198,7 +198,15 @@
         }
 
     });
-  
+   $("#sum").html(sum.toFixed(2));
+    var remain = 100000-sum;
+   if (remain<0) {
+    remain=0;
+   }
+    chart.data.datasets[0].data[0]=sum;
+    chart.data.datasets[0].data[1]=remain;
+    chart.update();
+}
 
 $(".addRow").on("click", addRow);
 
